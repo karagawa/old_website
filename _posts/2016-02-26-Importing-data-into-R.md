@@ -1,0 +1,165 @@
+---
+layout: post
+title: "How to Import Data into R"
+author: "Chuan Tang"
+date: "February 25, 2016"
+output: html_document
+excerpt: A summary about various methods to import data into R.
+tags: R
+comments: true
+---
+
+
+
+Importing data into R is the first step for all data analysis. In addition to using the basic `read.table()` command, this article introduces (1) the `readr` package developed by [Hadley Wickham](http://hadley.nz/), (2) import data from internet to R using package `jsonlite`, and (3) connect and fetch data from online database. This article is a summary of completing the "Importing Data into R" course of [DataCamp](https://www.datacamp.com/courses/importing-data-into-r). 
+
+Firstly, we load all packaged needed for this sessions:
+
+
+```r
+library(readr)
+library(jsonlite)
+```
+
+> Importing data into R using `readr` package 
+
+The basic R provides `read.table()` to import data. I am using a dataset for [globle airports dump file](https://datahub.io/dataset/global_airports/resource/82b48517-63ed-47d7-be5f-e6775fc015bd) as example here:
+
+Firstly, we need to download the data for local use:
+
+
+```r
+url <- "https://commondatastorage.googleapis.com/ckannet-storage/2012-07-09T214020/global_airports.csv"
+
+sample_path <- file.path("~", "sample.csv")  # set the file path for download data
+
+download.file(url, sample_path)
+```
+
+```
+## Error in download.file(url, sample_path): unsupported URL scheme
+```
+Once we download the data successfully, we can read the downloaded file directly from the `sample_path`. `readr` provides `read_csv` for `.csv` file and `read_tsv` for `.txt` file:
+
+
+```r
+library(readr)
+
+sample_data <- read_csv(sample_path)
+```
+
+Then, we can check the structure of the `example` data:
+
+
+```r
+str(sample_data)
+```
+
+```
+## Classes 'tbl_df', 'tbl' and 'data.frame':	6977 obs. of  11 variables:
+##  $ airport_id: int  1 2 3 4 5 6 7 8 9 10 ...
+##  $ name      : chr  "Goroka" "Madang" "Mount Hagen" "Nadzab" ...
+##  $ city      : chr  "Goroka" "Madang" "Mount Hagen" "Nadzab" ...
+##  $ country   : chr  "Papua New Guinea" "Papua New Guinea" "Papua New Guinea" "Papua New Guinea" ...
+##  $ iata_faa  : chr  "GKA" "MAG" "HGU" "LAE" ...
+##  $ iaco      : chr  "AYGA" "AYMD" "AYMH" "AYNZ" ...
+##  $ latitude  : num  -6.08 -5.21 -5.83 -6.57 -9.44 ...
+##  $ longitude : num  145 146 144 147 147 ...
+##  $ altitude  : int  5282 20 5388 239 146 19 112 283 165 251 ...
+##  $ zone      : num  10 10 10 10 10 10 -3 -3 -3 -4 ...
+##  $ dst       : chr  "U" "U" "U" "U" ...
+```
+
+The biggest advantage of using the `read_csv()` rather than `read.csv()` is that the former is more concise and parsimony: you no longer need to specify the `header` and `sep` keys for most situations. Furthermore, as shown above, the data structure includes `tbl_df`, which is convenient for data analysis using package `data.table`. 
+
+> Import **JSON** data into R
+
+[JSON(JavaScript Object Notation)](http://www.json.org/) is a lightweight data-interchange format. The upside of using *JSON* data is it is easy for human reading and writing. 
+
+Firstly, it is necessary to briefly introduce the Syntax rules for *JSON* data:
+
+#### JSON Data
+
+  + Example:  "firstName":"Chuan"
+
+#### JSON Values
+
+  + Example: {"firstName":"Chuan", "lastName":"Tang"}
+  
+#### JSON Arrays
+
+  + Example: 
+  
+  "employees":[
+    {"firstName":"Chuan", "lastName":"Tang"},
+    {"firstName":"Jason", "lastName":"Smith"},
+    {"firstName":"Peter","lastName":"Jones"}
+]
+
+More details about *JSON* format and how to use it can be found it [here](http://www.w3schools.com/json/default.asp).
+
+The package used for fetching and converting *JSON* data into R is [`jsonlite`](https://cran.r-project.org/web/packages/jsonlite/index.html) developed by Jeroen Ooms. I am using Reservoir Information Feed data in *JSON* format published on [datahub](https://datahub.io/dataset/reservoir-information-feed/resource/44ea13ec-c9a8-4fc5-9480-4b9f4fa59718) as example.
+
+
+At first, we import the online *JSON* data into R using the `fromJSON()` command :
+
+
+```r
+data_url <- "http://www.ywonline.co.uk/web/reservoi.nsf/ReservoirsJSON"
+
+json_data <- fromJSON(data_url)  # It is possible to directly put the url here as well
+
+str(json_data)
+```
+
+As to convert R data into *JSON* format, `toJSON()` command could be used. Moreover, `prettify()` and `minify()` are two commands to make the *JSON* pretty or as concise as possible:
+
+
+```r
+pretty_json <- toJSON(mtcars, pretty = T)  # to make JSON data in a pretty way, the pretty key could be set directly
+
+mini_json <- minify(pretty_json)  # to convert the pretty JSON data into concise way
+```
+
+The session info for this test is shown below:
+
+```r
+sessionInfo()
+```
+
+```
+## R version 3.1.3 (2015-03-09)
+## Platform: x86_64-w64-mingw32/x64 (64-bit)
+## Running under: Windows 8 x64 (build 9200)
+## 
+## locale:
+## [1] LC_COLLATE=English_United States.1252 
+## [2] LC_CTYPE=English_United States.1252   
+## [3] LC_MONETARY=English_United States.1252
+## [4] LC_NUMERIC=C                          
+## [5] LC_TIME=English_United States.1252    
+## 
+## attached base packages:
+## [1] methods   stats     graphics  grDevices utils     datasets  base     
+## 
+## other attached packages:
+## [1] jsonlite_0.9.19 readr_0.2.2    
+## 
+## loaded via a namespace (and not attached):
+## [1] digest_0.6.8  evaluate_0.8  formatR_1.2   knitr_1.12.3  Rcpp_0.11.5  
+## [6] stringr_0.6.2 tools_3.1.3
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
