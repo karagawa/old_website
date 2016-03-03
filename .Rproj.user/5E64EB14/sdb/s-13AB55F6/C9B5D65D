@@ -1,0 +1,17 @@
+{
+    "contents" : "---\nlayout: default\ntitle: Long Haul\n---\n\n<div class=\"home\" id=\"blog\">\n  <h1 class=\"pageTitle\">Recent Posts</h1>\n  <ul class=\"posts noList\">\n    {% for post in paginator.posts %}\n      <li>\n        <span class=\"date\">{{ post.date | date: '%B %d, %Y' }}</span>\n        <h3><a class=\"post-link\" href=\"{{ post.url | prepend: site.baseurl }}\">{{ post.title }}</a></h3>\n        <p class=\"description\">{% if post.description %}{{ post.description | strip_html | strip_newlines | truncate: 250 }}{% else %}{{ post.content | strip_html | strip_newlines | truncate: 250 }}{% endif %}</p>\n      </li>\n    {% endfor %}\n  </ul>\n  <!-- Pagination links -->\n  <div class=\"pagination\">\n    {% if paginator.previous_page %}\n      <a href=\"{{ paginator.previous_page_path | prepend: site.baseurl }}\" class=\"previous button__outline\">Newer Posts</a> \n    {% endif %}\n    {% if paginator.next_page %}\n      <a href=\"{{ paginator.next_page_path | prepend: site.baseurl }}\" class=\"next button__outline\">Older Posts</a>\n    {% endif %}\n  </div>\n</div>\n",
+    "created" : 1456963532698.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3830610181",
+    "id" : "C9B5D65D",
+    "lastKnownWriteTime" : 1456963547,
+    "path" : "~/GitHub/karagawa.github.io/index.html",
+    "project_path" : "index.html",
+    "properties" : {
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "type" : "html"
+}

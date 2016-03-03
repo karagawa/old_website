@@ -1,0 +1,37 @@
+title: Chuan Tang
+description: 
+
+url: 
+baseurl: ""
+paginate_path: "blog/page:num/"
+permalink: blog/:title/
+
+markdown: kramdown
+highlighter: rouge
+gems: [jekyll-paginate]
+paginate: 5
+
+kramdown:
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  enable_coderay: false
+
+navigation:
+ - title: Blog
+   url: /index.html
+ - title: Research
+   url: /Research/
+ - title: About
+   url: /About/
+ - title: Contact
+   url: /Contact/
+
+social:
+   github: 
+   twitter: 
+   facebook: 
+   email: 
+
+google_analytics: 

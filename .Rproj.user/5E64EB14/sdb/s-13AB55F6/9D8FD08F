@@ -1,0 +1,17 @@
+{
+    "contents" : "title: Chuan Tang\ndescription: \n\nurl: \nbaseurl: \"\"\npaginate_path: \"blog/page:num/\"\npermalink: blog/:title/\n\nmarkdown: kramdown\nhighlighter: rouge\ngems: [jekyll-paginate]\npaginate: 5\n\nkramdown:\n  auto_ids: true\n  footnote_nr: 1\n  entity_output: as_char\n  toc_levels: 1..6\n  enable_coderay: false\n\nnavigation:\n - title: Blog\n   url: /index.html\n - title: Research\n   url: /Research/\n - title: About\n   url: /About/\n - title: Contact\n   url: /Contact/\n\nsocial:\n   github: \n   twitter: \n   facebook: \n   email: \n\ngoogle_analytics: \n",
+    "created" : 1456963014123.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2399432590",
+    "id" : "9D8FD08F",
+    "lastKnownWriteTime" : 1456963117,
+    "path" : "~/GitHub/karagawa.github.io/_config.yml",
+    "project_path" : "_config.yml",
+    "properties" : {
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "type" : "yaml"
+}
