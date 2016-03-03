@@ -1,0 +1,17 @@
+{
+    "contents" : "/***************\nTRANSITION\n***************/\n\n/* @include transition(all 0.2s ease-in-out); */\n@mixin transition($transition...) {\n  // defining prefixes so we can use them in mixins below\n  $prefixes:      (\"-webkit-\", \"\" );\n  @each $prefix in $prefixes {\n    #{$prefix}transition: $transition;\n  }\n}\n\n\n/***************\nBOX SIZING\n***************/\n\n/* @include box-sizing(border-box); */\n@mixin box-sizing($type: border-box) {\n\t-webkit-box-sizing: $type;\n\t-moz-box-sizing:    $type;\n\t-ms-box-sizing:     $type;\n\tbox-sizing:         $type;\n}\n\n\n/***************\nCLEAR AFTER FLOATS\n***************/\n\n@mixin clearfix {\n  zoom:1;\n  &:before, &:after {\n    content: \"\\0020\"; \n    display: block; \n    height: 0; \n    overflow: hidden; \n  }\n  &:after {\n    clear: both;\n  }\n}\n\n.clearfix {\n  @include clearfix;\n}\n",
+    "created" : 1456977705616.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "387275671",
+    "id" : "FC709587",
+    "lastKnownWriteTime" : 1456752904,
+    "path" : "~/GitHub/karagawa.github.io/assets/scss/partials/_mixins.scss",
+    "project_path" : "assets/scss/partials/_mixins.scss",
+    "properties" : {
+    },
+    "relative_order" : 13,
+    "source_on_save" : false,
+    "type" : "text"
+}
