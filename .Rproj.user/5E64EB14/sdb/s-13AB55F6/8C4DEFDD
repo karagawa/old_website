@@ -1,0 +1,17 @@
+{
+    "contents" : "/***************\nFORM STYLING\n***************/\n\nlabel {\n\tdisplay:block;\n\tmargin-bottom:5px;\n}\ninput[type=text],input[type=email],input[type=phone],input[type=password],input[type=number],input[type=search], textarea {\n\tbackground: darken(white, 10%);\n\tpadding:5px;\n\toutline:none;\n\tborder: none;\n\theight: $line-height;\n\twidth:150px;\n\tmargin-bottom: .5rem;\n\n\t&:focus {\n\t\tborder: 1px solid $primary-color;\n\t}\n\n\t&.full-width {\n\t\twidth:100%;\n\t}\n}\ntextarea {\n\theight:$line-height*3;\n}\n\nform {\n\tmargin-bottom:$padding;\n\n\t// Wrap each form input/element in a field div\n\t.field {\n\t\tmargin-bottom:$padding/2;\n\t}\n\n\t// Notes go under the input fields\n\t.note {\n\t\tmargin-top:5px;\n\t\tcolor:$subtle-color;\n\t}\n\n\t// Required label\n\t.req {\n\t\tfont-style: italic;\n\t}\n\n\t// Validation, add error class to the item div\n\t.error {\n\n\t\t// Validation reason\n\t\t.reason {\n\t\t\tmargin-top:5px;\n\t\t\tcolor:$bad-color;\n\t\t}\n\n\t\tinput[type=text],input[type=email],input[type=phone],input[type=password],input[type=number],input[type=search], textarea{\n\t\t\tborder-color:$bad-color;\n\t\t}\n\t}\n}",
+    "created" : 1456976863847.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3443605701",
+    "id" : "8C4DEFDD",
+    "lastKnownWriteTime" : 1456976931,
+    "path" : "~/GitHub/karagawa.github.io/assets/scss/modules/_forms.scss",
+    "project_path" : "assets/scss/modules/_forms.scss",
+    "properties" : {
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "type" : "text"
+}
