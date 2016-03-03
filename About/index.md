@@ -1,6 +1,6 @@
 ---
 layout: default
-title: About Long Haul
+title: About Chuan
 ---
 
 I am a Ph.D. Candidate in Environmental Science and Engineering. As a typical student majoring in environmental science & engineering, I started my Ph.D. studying career by venturing into a completely new research sphere: environmental economics. I am so fortunate to enter this research field under direction of my advisor, [Prof. Martin D. Heintzelman](http://people.clarkson.edu/~mheintze/) and to receive a great amount of advices and support from [Prof. Nicolai V. Kuminoff](http://www.public.asu.edu/~nkuminof/).
