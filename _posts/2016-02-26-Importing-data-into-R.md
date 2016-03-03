@@ -4,7 +4,7 @@ title: "How to Import Data into R"
 author: "Chuan Tang"
 date: "February 25, 2016"
 output: html_document
-excerpt: A summary about various methods to import data into R.
+description: A summary about various methods to import data into R.
 tags: R
 comments: true
 ---

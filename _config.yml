@@ -1,6 +1,8 @@
 title: Chuan Tang
 description: 
 
+author: Chuan Tang
+
 url: 
 baseurl: ""
 paginate_path: "blog/page:num/"
